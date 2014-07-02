@@ -93,6 +93,8 @@ table {
 	border-right: 2px solid rgba(99,99,99,0.5);
 	border-bottom: 2px solid rgba(99,99,99,0.5);
 	width: 500px;	
+	border-collapse:collapse;
+	border-spacing:0;
 }
 
 table th, td {
