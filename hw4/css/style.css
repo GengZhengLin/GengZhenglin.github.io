@@ -1,0 +1,163 @@
+div.myslide{
+	position: relative;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+div.myslidegroup{
+	position: relative;
+	overflow: hidden;
+}
+
+div.myslideitem{
+	float: left;
+	overflow: hidden;
+	transition: -webkit-transform 0.5s ease-in-out;
+}
+
+div.commentDis {
+	width: 50em;
+	padding: 1em;
+	border: 1px solid rgba(100,100,100,0.5);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.commentBlock{
+	padding: 1em;
+	border-bottom: 1px solid rgba(100,100,100,0.5);
+}
+
+span.level{
+	color: rgba(28,88,255,0.8);
+}
+span.level:before{
+	content: "#";
+	color: rgba(28,88,255,0.8);
+}
+
+span.name{
+	font-weight: bold;
+}
+
+p.commentcontent{
+	text-indent: 2em;
+}
+
+span.commenttime{
+	float: right;
+	color: rgba(100,100,100,0.8);
+}
+
+div.clearfix{
+	clear: both;
+}
+
+input.commentarea{
+	display: block;
+	height: 2em;
+	width: 96%;
+	margin: 1em;
+}
+
+input.okbutton{
+	float: right;
+	margin-right: 1em;
+	margin-top:-0.5em;
+}
+
+a:-webkit-any-link {
+	color: -webkit-link;
+	text-decoration: underline;
+	cursor: auto;
+}
+
+div.mypictext{
+	position: absolute;
+	bottom: auto;
+	background: rgba(0,0,0,0.5);
+	color: white;
+	padding: 1em;
+	z-index: 10;
+}
+
+.myrightslidecontrol, .myleftslidecontrol{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 15%;
+	color: rgba(255,255,255,0.5);
+}
+
+.myrightslidecontrol{
+	right: 0;
+	left: auto;
+	/*background-image: linear-gradient(to right,rgba(54,46,43,.0001) 0,rgba(54,46,43,.5) 100%);*/
+}
+
+.myleftslidecontrol{
+	left: 0;
+	right: auto;
+	/*background-image: linear-gradient(to left,rgba(54,46,43,.0001) 0,rgba(54,46,43,.5) 100%);*/
+}
+
+.glyphicon.glyphicon-chevron-right,.glyphicon.glyphicon-chevron-left{
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	font-size: 50px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: inline-block;
+}
+
+.glyphicon-chevron-right{
+	right: 30px;
+}
+
+.glyphicon-chevron-left{
+	left: 10px;
+}
+.myrightslidecontrol:hover, .myleftslidecontrol:hover{
+	color: rgba(255,255,255,1);
+}
+
+.mypicgal{
+	width: 100%;
+	background-color: rgb(54,46,43);
+}
+
+div.picresult{
+	overflow: hidden;
+}
+
+img.cutpic{
+	position: relative;
+}
+
+div.igeek{
+	background-color: rgb(127,45,0);
+}
+
+h1{
+	font-size: 100px;
+	font-family: 微软雅黑;
+	color: yellow;
+	text-shadow: 2px 2px 5px yellow;
+}
+
+div.commentB{
+	padding: 2em;
+	padding-bottom: 5em;
+	background-color: rgb(127,45,0);
+}
+
+div.piccut{
+	background-color: rgb(54,46,43);
+	color: white;
+}
+
+#cutbtn{
+	color: black;
+}

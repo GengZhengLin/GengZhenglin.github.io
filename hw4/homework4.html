@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="igeek">
+		<img src="pic/geek.gif">
+		<img src="pic/monkey.gif" style="float:right;">
+		<div class="clearfix"></div>
+	</div>
+	<div class="mypicgal">
+		<div class="myslide">
+			<div class="myslidegroup"></div>
+			<a class="myleftslidecontrol" onclick="setCurrentSlide(current - 1)"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a class="myrightslidecontrol" onclick="setCurrentSlide(current + 1)"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			<div class="mypictext"></div>
+		</div>
+	</div>
+	<div class="commentB">
+		<h1>评论区</h1>
+	</div>
+	<div class="commentDis">
+		<div class="comments"></div>
+		<div class="pageinator">
+		</div>
+	</div>
+	<div class="commentB">
+		<h1>图片裁剪</h1>
+	</div>
+	<div class="piccut">						
+		<div class="picsource">
+			<img src="pic/1.jpg">
+		</div>
+		<button onclick="begincut()" id="cutbtn">裁剪</button>
+		<div>第一个点：<span id="firstpoint"></span></div>
+		<div>第二个点：<span id="secondpoint"></span></div>	
+		<div>结果：</div>
+		<div class="picresult"><img class="cutpic" /></div>
+		
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/ejs.js"></script>
+	<script type="text/javascript" src="js/controlSlide.js"></script>
+	<script type="text/javascript" src="js/controlComment.js"></script>
+	<script type="text/javascript" src="js/piccut.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<%
+comments.forEach(function(item, index){
+%>
+	<div class="commentBlock">
+		<span class="level"><%= item.level%></span>
+		<span class="name"><%= item.name%></span>
+		<p class="commentcontent"><%= item.comment%></p>
+		<span class="commenttime"><%= item.datetime%></span>
+		<div class="clearfix"></div>
+	</div>
+<%
+});
+%>

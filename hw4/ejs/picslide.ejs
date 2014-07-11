@@ -1,0 +1,9 @@
+ <%
+      images.forEach(function(item, index) {
+      %>
+      <div class="myslideitem" style="translateX(-<%= itemWidth * (index - 1) %>px)">
+          <img src="<%= item.url %>"/>
+      </div>
+      <%
+      });
+%>
