@@ -1,6 +1,7 @@
 var piccutdata = {"src":"pic/1.jpg"};
 //$('#cutbtn').click(begincut);
 
+//获得点的坐标
 var getpoint = function(event){
 	var $pic = $('.picsource');
 	var w = $pic.width();
@@ -13,11 +14,13 @@ var getpoint = function(event){
 	}
 	else return '';
 }
+//按下按钮开始截取图片
 var begincut = function(){
 	$('#cutbtn').attr('disabled','disabled');
 	getFirstPoint();
 }
 
+//获取第一个点
 var getFirstPoint = function(){
 	$('.picsource').mousemove(function(event) {
 		$('#firstpoint').text(getpoint(event));
@@ -31,6 +34,7 @@ var getFirstPoint = function(){
 	});
 }
 
+//获取第二个点
 var getSecondPoint = function(){
 	$('.picsource').unbind('click');
 	$('.picsource').unbind('mousemove');
@@ -46,6 +50,7 @@ var getSecondPoint = function(){
 	});
 }
 
+//展示截取出的图片
 var showpic = function(){
 	$('.picsource').unbind('click');
 	$('.picsource').unbind('mousemove');
@@ -65,6 +70,7 @@ var showpic = function(){
 	$('#cutbtn').removeAttr('disabled');
 }
 
+//展示浏览器上次截取的图片
 var showLastPic = function(){
 	if (localStorage.hasOwnProperty('x1')){
 		var x1=parseInt(localStorage.x1);

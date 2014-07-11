@@ -6,6 +6,7 @@ void function() {
 		var templateList = new EJS({url:'../ejs/comment.ejs'});
 		var templatePaginator = new EJS({url:'../ejs/commentpage.ejs'});
 
+		//转到第几页
 		function gotoPage(value) {
 			pageIndex = parseInt(value);
 			$.ajax({
@@ -15,6 +16,7 @@ void function() {
 		}
 
 		function processData(data) {
+			//渲染页面
 			$('.comments').html(
 				templateList.render({"comments":data.commentlist})
 				);
@@ -32,7 +34,7 @@ void function() {
 					"pageIndex": pageIndex
 				})
 				);
-
+			//绑定事件
 			$('.goto-first').bind('click', function() {
 				gotoPage(0);
 			});

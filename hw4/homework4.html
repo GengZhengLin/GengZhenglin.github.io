@@ -13,20 +13,23 @@
 	</div>
 	<div class="mypicgal">
 		<div class="myslide">
+			<div class="myslidebutton"></div>
 			<div class="myslidegroup"></div>
 			<a class="myleftslidecontrol" onclick="setCurrentSlide(current - 1)"><span class="glyphicon glyphicon-chevron-left"></span></a>
 			<a class="myrightslidecontrol" onclick="setCurrentSlide(current + 1)"><span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="mypictext"></div>
+			<div class="mypictext wobble-vertical"></div>			
 		</div>
 	</div>
 	<div class="commentB">
 		<h1>评论区</h1>
 	</div>
-	<div class="commentDis">
+	<div class="mypicgal">
+		<div class="commentDis">
 		<div class="comments"></div>
 		<div class="pageinator">
 		</div>
 	</div>
+	</div>	
 	<div class="commentB">
 		<h1>图片裁剪</h1>
 	</div>
@@ -34,7 +37,7 @@
 		<div class="picsource">
 			<img src="pic/1.jpg">
 		</div>
-		<button onclick="begincut()" id="cutbtn">裁剪</button>
+		<button onclick="begincut()" id="cutbtn" class="btn btn-primary">裁剪</button>
 		<div>第一个点：<span id="firstpoint"></span></div>
 		<div>第二个点：<span id="secondpoint"></span></div>	
 		<div>结果：</div>
