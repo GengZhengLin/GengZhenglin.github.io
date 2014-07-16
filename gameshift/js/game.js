@@ -186,7 +186,7 @@ var Game = {
 		this.stars = new Image();
 		this.stars.src = url + 'stars.gif';
 		this.littlestar = new Image();
-		this.littlestar.src = url + 'littlestar.png';
+		this.littlestar.src = url + 'littleStar.png';
 	},
 	colorMatrixTogameobj:function(){
 		var g = {};
