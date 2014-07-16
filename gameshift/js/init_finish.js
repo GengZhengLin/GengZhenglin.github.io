@@ -115,7 +115,7 @@ function floodfill(game, index, part){
 
 function isfinished(game){
 	var area=0;
-	//console.log(area);
+	console.log(area);
 	for (var icolor=0;icolor<5;icolor++){
 		for (var i=0;i<game.height*game.width;i++){
 			if (game.matrix[i].top==icolor){

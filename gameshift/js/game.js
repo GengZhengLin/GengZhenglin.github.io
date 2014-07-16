@@ -58,14 +58,14 @@ var Game = {
 		//this.parseColMat();
 		//this.bindDragEvent();
 		//this.bindHoverEvent();
-		$('.backcontainer').mousedown(function(event) {
-			$(this).css('cursor', null);
-			$('.backcontainer').css('cursor', 'url("res/pic/mousedown.ico"), default');
-		});
-		$('.backcontainer').mouseup(function(event) {
-			$(this).css('cursor', null);
-			$(this).css('cursor', 'url("res/pic/mousemove.ico"), default');
-		});
+		//$('.backcontainer').mousedown(function(event) {
+		//	$(this).css('cursor', null);
+		//	$('.backcontainer').css('cursor', 'url("res/pic/mousedown.ico"), default');
+		//});
+		//$('.backcontainer').mouseup(function(event) {
+		//	$(this).css('cursor', null);
+		//	$(this).css('cursor', 'url("res/pic/mousemove.ico"), default');
+		//});
 
 		var temp = null;
 		if (localStorage.hasOwnProperty('record')){
@@ -545,7 +545,16 @@ var Game = {
 
 		$('body').mouseup(function(event){
 			if (!inCanvasDown) return;
-			if (!mr && !mc){bindHoverEvent(); redrawStage.call(Game); return;}
+			if (!mr && !mc){
+				$('#myCanvas').bind('mousemove', function(event){
+				Game.mouseHoverBlock.call(Game, event);
+			});
+		$('#myCanvas').bind('mouseleave', function(){
+			Game.redrawStage.call(Game);
+		});
+				redrawStage.call(Game); 
+				return;
+			}
 			inCanvasDown = false;
 			var offset = 0;
 			var td = 0;

@@ -10,7 +10,6 @@ body{
 	width: 640px;
 	-webkit-user-select: none;
 	overflow: hidden;
-	cursor: url('../res/pic/mousemove.ico'), default;
 }
 
 img#bgpic{
@@ -71,7 +70,6 @@ div#curturn{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	display: none;
 }
 
 /*div.#passlv{
@@ -155,4 +153,17 @@ span.stepnum{
 	position: absolute;
 	top: 15%;
 	right: 15%;
+}
+
+div.wait{
+	font-size: 40px;
+	font-family: 微软雅黑;
+	color:white;
+	position:absolute;
+	top: 30%;
+	left: 30%;
+}
+
+canvas#myCanvas{
+	cursor: pointer;
 }
