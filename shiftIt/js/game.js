@@ -135,10 +135,7 @@ var Game = {
 		$('#particleCanvas').remove();
 		this.level = num;
 		$.ajax({url:'res/stage/'+num+'.json', dataType:'json', success:function(data){Game.initlevel(data);}});
-		// $.getJSON('res/stage/'+num+'.json', function(data){
-		// 	Game.initlevel(data);
-		// });
-		
+	
 	},
 	initcolorMatrix:function(){
 		this.colorMatrix = new ColorMatrix();
