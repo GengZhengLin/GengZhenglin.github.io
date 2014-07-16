@@ -34,6 +34,7 @@ var Game = {
 	num2color: null,
 	ctx: null,
 	movements: [],
+	movementsbool:[],
 	blockpicnames: {},
 	blockpics:[],
 	colnum: 5,
@@ -114,10 +115,11 @@ var Game = {
 		$('#lvnum').text(Game.level);
 		$('#snum').text(0);
 		$(Game).bind("myMoveover", function(){
+			if (!Game.movementsbool[Game.movements.length - 1]) return;
 			if (Game.movements.length > 0){
 				var m = Game.movements[Game.movements.length - 1];
-				if (m.step === 0){Game.movements.pop();}
-				else {changeColorMatrix(Game.movements[Game.movements.length - 1]);}
+				if (m.step === 0){Game.movements.pop(); Game.movementsbool.pop();}
+				else {changeColorMatrix(Game.movements[Game.movements.length - 1]); Game.movementsbool[Game.movements.length - 1] = false;}
 			}
 			bindHoverEvent();
 			redrawStage.call(Game);
@@ -506,6 +508,7 @@ var Game = {
 		var moverowto = this.moverowto;
 		var movecolto = this.movecolto;
 		var movements = this.movements;
+		var movementsbool = this.movementsbool;
 		var changeColorMatrix = this.changeColorMatrix;
 		var bindHoverEvent = this.bindHoverEvent;
 		var drawBlockRow = this.drawBlockRow;
@@ -550,13 +553,15 @@ var Game = {
 		$('body').mouseup(function(event){
 			if (!inCanvasDown) return;
 			if (!mr && !mc){
+				$('#myCanvas').unbind('mousemove');
+				$('#myCanvas').unbind('mouseleave');
 				$('#myCanvas').bind('mousemove', function(event){
 				Game.mouseHoverBlock.call(Game, event);
 			});
 		$('#myCanvas').bind('mouseleave', function(){
 			Game.redrawStage.call(Game);
 		});
-				redrawStage.call(Game); 
+				//redrawStage.call(Game); 
 				return;
 			}
 			inCanvasDown = false;
@@ -589,6 +594,7 @@ var Game = {
 	if (mc) {m.rc = "col"; m.num = nx; /*drawBlockcol(m.num);*/}
 	m.step = td / blockwidth;
 	movements.push(m);
+	movementsbool.push(true);
 			//changeColorMatrix(m);
 			// $('#myCanvas').bind("mousemove", function(){
 			// 	ctx.save();
@@ -652,7 +658,7 @@ drawHoverBlock: function(bx,by,colobj){
 			case 2:
 			if (c === 'tl') {rotateD = 1;}
 			if (c === 'tr') {rotateD = 2;}
-			if (c === 'rb') {rotateD = -1;}
+			if (c === 'br') {rotateD = -1;}
 			break;
 			case 3:
 			if (c === 'tlr') {rotateD = 1;}
