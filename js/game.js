@@ -69,7 +69,7 @@ var Game = {
 		//	$(this).css('cursor', 'url("res/pic/mousemove.ico"), default');
 		//});
 
-		var temp = null;
+		var m = null;
 		if (localStorage.hasOwnProperty('record')){
 			m = JSON.parse(localStorage.record);
 			if (m.hasOwnProperty('bestlv')){
@@ -105,6 +105,7 @@ var Game = {
 		this.parseColMat();
 		this.bindDragEvent();
 		this.movements.length = 0;
+		this.movementsbool.length = 0;
 		var bindHoverEvent = this.bindHoverEvent;
 		var changeColorMatrix = this.changeColorMatrix;
 		var redrawStage = this.redrawStage;
@@ -125,7 +126,7 @@ var Game = {
 			redrawStage.call(Game);
 			$('#snum').text(Game.movements.length);
 			if (isfinished(colorMatrixTogameobj.call(Game))) {gameover.call(Game);}
-			if (this.iscanveling){this.movements.pop();this.movements.pop(); this.iscanveling = false;}
+			if (this.iscanveling){this.movements.pop();this.movements.pop(); this.movementsbool.pop();this.iscanveling = false;}
 		});
 		this.mouseonx = -1;
 		this.mouseony = -1;
@@ -306,6 +307,7 @@ var Game = {
 		$('#passlv').animate({'left':0},'slow', 'swing', function(){setStars(numOf);});
 
 		Game.record['lv'+Game.level] = numOf;
+		if (!Game.record.hasOwnProperty('bestlv')) Game.record.bestlv = 0;
 		if (Game.level > Game.record['bestlv'])  {Game.record['bestlv'] = Game.level;}
 		localStorage.record = JSON.stringify(Game.record);
 
