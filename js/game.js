@@ -44,6 +44,7 @@ var Game = {
 	stars:null,
 	littlestar:null,
 	level:0,
+	totallvl:36,
 	record:{},
 	mouseonx:-1,
 	mouseony:-1,
@@ -134,7 +135,11 @@ var Game = {
 		});
 		$('#particleCanvas').remove();
 		this.level = num;
-		$.ajax({url:'res/stage/'+num+'.json', dataType:'json', success:function(data){Game.initlevel(data);}});
+		$.ajax({url:'res/stage/'+num+'.json', 
+			dataType:'json', 
+			success: function(data){Game.initlevel(data);},
+			error: function(){alert('jsonError!');}
+		});
 	
 	},
 	initcolorMatrix:function(){
@@ -299,7 +304,7 @@ var Game = {
 		$('#passlv').animate({'left':0},'slow', 'swing', function(){setStars(numOf);});
 
 		Game.record['lv'+Game.level] = numOf;
-		Game.record['bestlv'] = Game.level;
+		if (Game.level > Game.record['bestlv'])  {Game.record['bestlv'] = Game.level;}
 		localStorage.record = JSON.stringify(Game.record);
 
 		var $par = $("<canvas>").attr('id', 'particleCanvas').attr('class', 'particleCanvas').attr('width',640).attr('height', 960);
