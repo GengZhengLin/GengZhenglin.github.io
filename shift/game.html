@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Shift it</title>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="backcontainer">
+		<img src="res/pic/back.jpg" id="bgpic" width="640" height="960">
+		<div class="topbar">
+			<img src="res/pic/top.png">
+			<span class="lv">关卡：<span id='lvnum'></span></span>
+			<span class="stepnum">步数：<span id='snum'></span></span>
+		</div>
+		<div class="canvascontainer">
+			<img src="res/pic/picborder.png" class="back" width="490" height="490">
+			<canvas id="myCanvas"></canvas>
+		</div>
+		<img src="res/pic/bottombtn.png" id="bottombtn">
+		<img src="res/pic/cancelbtn.png" id="cancelbtn">
+		<img src="res/pic/mbtn.png" id="mbtn">
+		<div id="curturn"></div>
+	</div>
+	<audio src="res/sound/MoveFinish.wav" id="movefinish"></audio>
+	<audio src="res/sound/Celebrate.wav" id="celebrate"></audio>
+    <audio src="res/sound/bgm.mp3" autoplay="autoplay" loop="loop"></audio>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    	$('#curturn').append($('<div>').attr('class', 'wait').text('游戏马上开始...'));
+    	window.onload = function(){
+    		$('#curturn').slideUp('slow');
+    		$('.wait').remove();
+    	}
+    </script>
+    <script type="text/javascript" src="js/fundament.js"></script>
+    <script type="text/javascript" src="js/particle.js"></script>
+    <script type="text/javascript" src="js/init_finish.js"></script>
+    <script type="text/javascript" src="js/sound.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+</body>
+</html>
