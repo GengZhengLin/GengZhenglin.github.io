@@ -561,7 +561,7 @@ var Game = {
 		$('#myCanvas').bind('mouseleave', function(){
 			Game.redrawStage.call(Game);
 		});
-				//redrawStage.call(Game); 
+				redrawStage.call(Game); 
 				return;
 			}
 			inCanvasDown = false;
