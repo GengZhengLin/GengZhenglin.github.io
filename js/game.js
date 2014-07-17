@@ -126,7 +126,7 @@ var Game = {
 			redrawStage.call(Game);
 			$('#snum').text(Game.movements.length);
 			if (isfinished(colorMatrixTogameobj.call(Game))) {gameover.call(Game);}
-			if (this.iscanveling){this.movements.pop();this.movements.pop(); this.movementsbool.pop();this.iscanveling = false;}
+			if (this.iscanveling){this.movements.pop();this.movements.pop(); this.movementsbool.pop();this.movementsbool.pop();this.iscanveling = false;$('#snum').text(Game.movements.length);}
 		});
 		this.mouseonx = -1;
 		this.mouseony = -1;
@@ -161,6 +161,7 @@ var Game = {
 		var vm = myClone(m);
 		vm.step = -vm.step;
 		this.movements.push(vm);
+		this.movementsbool.push(true);
 		this.iscanveling = true;
 		if (vm.rc === "row"){
 			this.moverowto(vm.num, 0, vm.step * this.blockwidth, 50);
@@ -168,6 +169,7 @@ var Game = {
 		if (vm.rc === "col"){
 			this.movecolto(vm.num, 0, vm.step * this.blockwidth, 50);
 		}
+
 	},
 	initPicRes: function(){
 		var n = ['tlbr', 'l', 't', 'r', 'b', 'lb', 'tl', 'tr', 'br', 'tlb', 'tlr', 'tbr', 'lbr', 's4', 's1', 's2', 's3'];
@@ -288,9 +290,7 @@ var Game = {
 
 		var c=document.getElementById("starCanvas");
 		var ctx=c.getContext("2d");
-		for (var i = 0 ; i < 3; i++){
-			ctx.drawImage(emstar, i * 100, 0, 100, 100);
-		}
+		
 
 		var numOf = 3;
 		var ns = Game.movements.length;
@@ -388,6 +388,7 @@ var Game = {
 			$('div#curturn').slideUp("slow", function(){
 				$('.menubtn').remove();
 				$('.returnbtn').remove();
+				$($grabtn).remove();
 			});
 					
 		});
