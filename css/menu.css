@@ -30,12 +30,29 @@
 	left:calc(50% - 125px);
 	background-image: url('../res/pic/menuitem_small.png');
 	margin-top: 40px;
-	top:30%;
+	top:20%;
 }
 .menuitem a{
 	padding: 23px 0 0 68px;
 	display: block;
 	text-decoration: none;
+	font-size: 18pt;
+	color:#ffffff;
+}
+#helppanel{
+	background-image: url('../res/pic/helppanelborder.png');
+	height: 350px;
+	width: 490px;
+	z-index: 200;
+	top:-25%;
+	left:75px;
+	position: relative;
+	display: none;
+	opacity: 0.9;
+}
+#helppanel p{
+	padding:30px 30px 0 30px;
+	display: block;
 	font-size: 18pt;
 	color:#ffffff;
 }
