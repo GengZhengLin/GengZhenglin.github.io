@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/powerange.min.css">
+	<script type="text/javascript" src="js/grid.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/powerange.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<h1>Game of Lifes</h1>
+		</div>
+	</header>
+	<div class="wrapper">
+		<canvas id="grid" height="600px" width="600px" onclick="gameManager.click(event);"></canvas>
+		<ul id="buttongroup">
+			<li>
+				<button class="btn btn-success btn-lg btn-block" id="start" onclick="gameManager.start(interval.value)">start</button>
+			</li>
+			<li>
+				<button class="btn btn-success btn-lg btn-block" id="pause" onclick="gameManager.pause()">pause</button>
+			</li>
+			<li>
+				<button class="btn btn-success btn-lg btn-block" id="next" onclick="gameManager.next()">next</button>
+			</li>
+			<li>
+				<button class="btn btn-success btn-lg btn-block" id="clear" onclick="gameManager.clear()">clear</button>
+			</li>
+			<li>
+				<button class="btn btn-success btn-lg btn-block" id="random" onclick="gameManager.random(density.value/100)">random</button>
+			</li>
+			<li>
+				<div class="slider-wrapper">
+					<h4 id="density">Density: 0.5</h4>
+					<input class="js-density" style="display: none;" type="text">
+				</div>
+			</li>
+			<li>
+				<div class="slider-wrapper">
+					<h4 id="interval">Interval: 100 ms</h4>
+					<input class="js-interval" style="display: none;" type="text">
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/gameManager.js"></script>
+	<script type="text/javascript">
+	var density = document.querySelector('.js-density');
+	var initDensity = new Powerange(density, {start: 50, step: 10, hideRange: true});
+	density.onchange = function() {
+		document.getElementById('density').innerHTML = 'Density: ' + density.value / 100;
+	}
+	</script>
+	<script type="text/javascript">
+	var interval = document.querySelector('.js-interval');
+	var initInterval = new Powerange(interval, {start: 100, step: 10, min: 40, max: 1000, hideRange: true});
+	interval.onchange = function() {
+		document.getElementById('interval').innerHTML = 'Interval: ' + interval.value + ' ms';
+	}
+	</script>
+</body>
+</html>

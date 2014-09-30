@@ -1,0 +1,47 @@
+body {
+	width: 100%;
+	background: url("../img/background1.jpg");
+}
+
+header {
+	display: block;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+header h1 {
+	font-size: 48px;
+	color: white;
+	text-shadow: 5px 5px 10px white;
+}
+
+div#buttongroup{
+}
+
+div.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+
+#grid {
+	width: 600px;
+	height: 600px;
+}
+
+#buttongroup {
+	float: right;
+	width: 300px;
+}
+
+li + li {
+	margin-top: 40px;
+}
+
+li {
+	display: block;
+}
+
+.range-bar{
+	margin-top: 20px;
+}
