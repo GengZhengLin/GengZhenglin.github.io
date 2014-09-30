@@ -1,3 +1,4 @@
+//创建GameManager对象的函数，用于控制游戏
 function GameManager(){
 	this.grid = new Grid(40, 40);
 	this.isPlaying = false;
@@ -5,6 +6,7 @@ function GameManager(){
 	$('#pause').attr('disabled', 'disabled');
 }
 
+//绘制网格
 GameManager.prototype.drawGrid = function(){	
 	var context = document.getElementById("grid").getContext("2d");
 	context.clearRect(0, 0, 1000, 1000);
@@ -24,6 +26,7 @@ GameManager.prototype.drawGrid = function(){
 	}
 }
 
+//开始连续演化
 GameManager.prototype.start = function(timeInterval) {
 	this.isPlaying = true;
 	$('#start').attr('disabled', 'disabled');
@@ -38,6 +41,7 @@ GameManager.prototype.start = function(timeInterval) {
 	}, timeInterval);
 }
 
+//暂停演化
 GameManager.prototype.pause = function() {
 	this.isPlaying = false;
 	$('#start').removeAttr('disabled');
@@ -48,21 +52,25 @@ GameManager.prototype.pause = function() {
 	clearInterval(this.running);
 }
 
+//清空棋盘
 GameManager.prototype.clear = function() {
 	this.grid.clear();
 	this.drawGrid();
 }
 
+//随机生成网格
 GameManager.prototype.random = function(density){
 	this.grid.random(density);
 	this.drawGrid();
 }
 
+//计算下一步并绘制
 GameManager.prototype.next = function() {
 	this.grid.next();
 	this.drawGrid();
 }
 
+//点击网格
 GameManager.prototype.click = function(clickEvent) {
 	if (this.isPlaying) {
 		return;
