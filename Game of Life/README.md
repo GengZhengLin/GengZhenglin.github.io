@@ -9,18 +9,38 @@
 
 玩家可以通过鼠标点击直接修改每个细胞的生死状态，也可以使用我们提供的按钮清空或者随机生成细胞。其中，随机生成细胞时细胞的密度是可以由玩家指定的。玩家可以点击start按钮让细胞开始连续的演化，演化速度也是可以控制的。玩家也可以点击next按钮进行一步演化查看效果。为了防止出错，在细胞演化的过程中，玩家不可以自行改变细胞状态。
 
+##部署情况
 
-
+###网页访问
+[http://gengzhenglin.github.io/Game%20of%20Life/src/index.html](http://gengzhenglin.github.io/Game%20of%20Life/src/index.html)
+###代码部署
+[https://github.com/GengZhengLin/GengZhenglin.github.io/tree/gh-pages/Game%20of%20Life](https://github.com/GengZhengLin/GengZhenglin.github.io/tree/gh-pages/Game%20of%20Life)
+###单元测试部署
+[https://github.com/GengZhengLin/GengZhenglin.github.io/tree/gh-pages/Game%20of%20Life/test](https://github.com/GengZhengLin/GengZhenglin.github.io/tree/gh-pages/Game%20of%20Life/test)
 
 ##单元测试的运行方法##
 
 ###测试方法
-单元测试主要是对Grid.js中的Grid.next()函数进行测试，测试代码在``\test\test.js`中，运行单元测试的方法为：打开`\test\test.html`即会自动进行单元测试。
+单元测试主要是对Grid.js中的Grid.next()函数进行测试，测试代码在`\test\test.js`中，运行单元测试的方法为：打开`\test\test.html`即会自动进行单元测试。
 ###测试数据
 打开`\test\testdoc\testData.md`可以查看自动生成的测试数据。（注：这个文件是事先生成好的）
 ###测试覆盖率
 打开`\test\testdoc\testReport.html`可以查看测试过程中Grid.js代码的测试覆盖率。（注：这个文件是事先生成好的）
 
+###测试数据设计
+我们把细胞单元的状态进行了分类。首先，按照其周围活细胞的数量进行分类，可分为2，3和其他三类。其次，按照细胞自己的状态，分为活和死两类。按照细胞的位置，分为网格内部，边上和角上三类。如此排列组合一共有十八类。因为棋盘足够大，我们可以在一次运行中利用网格的不同位置测试多组数据。
+
+下图中，我们测试了细胞周围有三个活细胞时，细胞的状态变化。
+<img src="http://thu-wyw.github.io/images/1.PNG" style="display:block" width="300px" />
+
+下图中，我们测试了细胞周围有两个活细胞且细胞本身死亡时，细胞的状态变化。
+<img src="http://thu-wyw.github.io/images/2.PNG" style="display:block" width="300px" />
+
+下图中，我们测试了细胞周围有两个活细胞且细胞本身生存时，细胞的状态变化。
+<img src="http://thu-wyw.github.io/images/3.PNG" style="display:block" width="300px" />
+
+下图中，我们测试了细胞周围有其他数目的活细胞时，细胞的状态变化。
+<img src="http://thu-wyw.github.io/images/4.PNG" style="display:block" width="300px" />
 ##分工情况
 
 几乎所有代码文件为我们两位同学所共同完成，共同负责，但是如果一定要列出分工情况，就是这个样子的：
