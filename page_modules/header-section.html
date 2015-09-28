@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/neon-animation/animations/slide-down-animation.html">
 <link rel="import" href="../bower_components/neon-animation/animations/fade-in-animation.html">
 <link rel="import" href="scaleup-container.html">
+
 <dom-module id="header-section">
 
   <template>
@@ -19,13 +20,20 @@
         margin: auto;
         width: 100px;
         height: 100px;
-        -moz-border-radius: 52px;      /* Gecko browsers */
-        -webkit-border-radius: 52px;   /* Webkit browsers */
-        border-radius:52px;            /* W3C syntax */
-        border:4px solid white;
-        -webkit-box-shadow:1px 1px 3px #292929;
-         -moz-box-shadow:1px 1px 3px #292929;
-         box-shadow:1px 1px 3px #292929;
+        -moz-border-radius: 50px;      /* Gecko browsers */
+        -webkit-border-radius: 50px;   /* Webkit browsers */
+        border-radius:50px;            /* W3C syntax */
+      }
+      @media (min-width: 900px) {
+        .header ::content img {
+          -moz-border-radius: 52px;      /* Gecko browsers */
+          -webkit-border-radius: 52px;   /* Webkit browsers */
+          border-radius:52px;            /* W3C syntax */
+          border:4px solid white;
+          -webkit-box-shadow:1px 1px 3px #292929;
+          -moz-box-shadow:1px 1px 3px #292929;
+          box-shadow:1px 1px 3px #292929;
+        }
       }
       .header ::content h2 {
         margin: 25px 0 0;
