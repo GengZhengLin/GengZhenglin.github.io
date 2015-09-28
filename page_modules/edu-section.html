@@ -1,0 +1,45 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="edu-section">
+
+  <template>
+    <!-- scoped CSS for this element -->
+    <style>
+      :host{
+        display: block;
+        margin: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #E0E0E0;
+      }
+      h2 {
+      text-align: center;
+      }
+      table{
+        width: 100%;
+      }
+      td{
+        text-align: center;
+      }
+      td.time{
+        width: 10rem;
+        border-right: 1px solid #E0E0E0;
+      }
+    </style>
+    <h2>Education</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td class="time">2012-present</td>
+          <td>School of Software, <b>Tsinghua University</b>. <br/> Major: Software Engineering, Second Major: Economics</td</tr>
+      </tbody>
+    </table>
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: "edu-section",
+    });
+  </script>
+
+</dom-module>

@@ -1,0 +1,24 @@
+{
+  "name": "MyPage",
+  "version": "0.0.0",
+  "main": "index.html",
+  "keywords": [
+    "personal",
+    "homepage"
+  ],
+  "authors": [
+    "Zhenglin Geng"
+  ],
+  "license": "Tsinghua",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.1.0",
+    "neon-animation": "PolymerElements/neon-animation#~1.0.6"
+  }
+}

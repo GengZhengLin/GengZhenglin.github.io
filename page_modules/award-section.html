@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="award-section">
+
+  <template>
+    <!-- scoped CSS for this element -->
+    <style>
+      :host{
+        display: block;
+        margin-bottom: 5rem;
+      };
+      h2 {
+      text-align: center;
+      }
+    </style>
+    <h2>Awards</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>2014</td>
+          <td>National Fellowship (Highest honor in our department)</td>
+        </tr>
+        <tr>
+          <td>2013</td>
+          <td>National Endeaver Fellowship</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: "award-section",
+    });
+  </script>
+
+</dom-module>

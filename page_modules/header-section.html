@@ -1,0 +1,71 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../bower_components/neon-animation/animations/slide-down-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="scaleup-container.html">
+<dom-module id="header-section">
+
+  <template>
+    <!-- scoped CSS for this element -->
+    <style>
+      :host {
+        display: block;
+        background-color: #90CAF9;
+        padding-top: 150px;
+        padding-bottom: 25px;
+      };
+      .header ::content img {
+        display: block;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        -moz-border-radius: 52px;      /* Gecko browsers */
+        -webkit-border-radius: 52px;   /* Webkit browsers */
+        border-radius:52px;            /* W3C syntax */
+        border:4px solid white;
+        -webkit-box-shadow:1px 1px 3px #292929;
+         -moz-box-shadow:1px 1px 3px #292929;
+         box-shadow:1px 1px 3px #292929;
+      }
+      .header ::content h2 {
+        margin: 25px 0 0;
+        text-align: center;
+      }
+    </style>
+    <div class="header">
+      <scaleup-container><content select="img"></content></scaleup-container>
+      <content select="h2"></content>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "header-section",
+      behaviors: [
+        Polymer.NeonAnimationRunnerBehavior
+      ],
+      properties: {
+        animationConfig: {
+          value: function() {
+            return {
+              // provided by neon-animation/animations/scale-down-animation.html
+              'entry': [{
+                name: 'slide-down-animation',
+                node: this
+              }, {
+                name: 'fade-in-animation',
+                node: this,
+                timing: {delay: 50}
+              }]
+            }
+          }
+        }
+      },
+      animate: function() {
+        // run scale-down-animation
+        this.playAnimation('entry');
+      },
+    });
+  </script>
+
+</dom-module>

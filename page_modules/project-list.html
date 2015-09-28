@@ -1,0 +1,227 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="project-item.html">
+<dom-module id="project-list">
+  
+  <template>
+    <style>
+      :host{
+        display: block;
+        margin: 2rem 0;
+      };
+      h2 {
+      text-align: center;
+      }
+      .prject_name{
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin: 0.5rem 0;
+      }
+      .authors{
+        font-style: italic;
+        margin: 0.5rem 0;
+      }
+      .descript {
+        margin: 0.5rem 0;
+      }
+      a.demo{
+        float: left;
+        max-width: 200px;
+        margin: 10px 25px;
+        position: relative;
+      }
+      div.demo-title{
+        text-align: center;
+      }
+      div.clear-float{
+        clear: both;
+      }
+      div.demos{
+        display: inline-block;
+        margin: auto;
+      }
+
+    </style>
+    <h2> Projects </h2>
+    <template is="dom-repeat" items="{{projects}}">
+        <project-item>
+          <div class="prject_name">{{item.project_name}}</div>
+          <div class="authors">{{item.authors}}</div>
+          <div class="descript">{{item.descript}}</div>
+          <div class="tags">
+            <template is="dom-repeat" items="{{item.tags}}">
+              <a href="{{item.url}}" class="text">{{item.text}}</a>
+            </template>
+          </div>
+          <div class="demos">
+            <template is="dom-repeat" items="{{item.demos}}">
+              <a href="{{item.video}}" class="demo">
+                <img src="{{item.image}}" class="demo-image"/>
+                <div class="demo-title">{{item.title}}</div>
+              </a>
+            </template>
+            <div class="clear-float"></div>
+          </div>
+        </project-item>
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'project-list',
+      ready: function() {
+        this.projects = [
+            {
+              project_name: 'Real-time Rigid Body Simulation with Unity Integration (UGVR at Stanford)', 
+              authors: 'Supervised by Prof. Ron Fedkiw (Department of Computer Science, Stanford).',
+              descript: 'We compiled the C++ simulation library PhysBAM(350,000+ lines and 3000+ files) into a native plugin for Unity to make use of Unity\'s excellent rendering tools and user-friendly interfaces. Because I only spent 4 weeks to finish this project, I spent the rest of the time making some more special effects like explosions, cloth, fluid and trees.',
+              demos: [
+                {image:'images/ugvr-1.jpg', video:'videos/ugvr-1.mp4', title:'explosion'},
+                {image:'images/ugvr-2.jpg', video:'videos/ugvr-2.mp4', title:'cloth'},
+                {image:'images/ugvr-3.jpg', video:'videos/ugvr-3.mp4', title:'fluid'},
+                {image:'images/ugvr-4.jpg', video:'videos/ugvr-4.mp4', title:'tree'},
+                {image:'images/ugvr-5.jpg', video:'videos/ugvr-5.mp4', title:'Comparing rendering performance'},
+                {image:'images/ugvr-6.jpg', video:'videos/ugvr-6.mp4', title:'Comparing with last year\'s project'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'An Interactive Game Inplemented by MASM Assembly Language', 
+              authors: 'Zhenglin Geng, Yuwei Wang, Yang Yuan',
+              descript: 'We used low-level assembly language to implement this game.',
+              demos: [
+                {image:'images/trioo1.jpg', video:'javascript:void(0);', title:'trioo-1'},
+                {image:'images/trioo2.jpg', video:'videos/trioo.mp4', title:'trioo-2'},
+                {image:'images/trioo3.jpg', video:'javascript:void(0);', title:'trioo-3'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'Socket Programming - FTP', 
+              authors: 'Zhenglin Geng',
+              descript: 'I implemented the ftp protocol and made a gui for it using javaFX. (I put it here because I love this GUI...)',
+              demos: [
+                {image:'images/ftp.jpg', video:'videos/ftp.mp4', title:'ftp'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'Improvement on xv6 Operating System', 
+              authors: 'Zhenglin Geng(Team Leader), Yuwei Wang, Yang Yuan, Hua Zeng, Tongtong Liu, Yihan Wang, Xinyi Zhao, Meng Li, Yuting Ding, Bowei Zhou, Jun Qian, Congyi Huang',
+              descript: 'We added some commands, a GUI and a music player on MIT xv6 operating system by directly modifying the system\'s core.',
+              demos: [
+                {image:'images/xv61.jpg', video:'videos/xv61.gif', title:'bash'},
+                {image:'images/xv62.jpg', video:'videos/xv62.gif', title:'finder'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'Tsinghua Vote - A Voting App on Wechat Platform', 
+              authors: 'Zhenglin Geng, Yuwei Wang, Yang Yuan, Ningchen Wang',
+              descript: 'We built a wechat app which allows users to publish voting activities and allow users to vote using wechat. We used balsaiq for rapid prototyping, trello for agile management, git for version control, JMeter for our stress testing, Chart.js for data visualization and Django for our website framework. We developed iteratively to meet the frequently changing demand.',
+              demos: [
+                {image:'images/vote1.jpg', video:'javascript:void(0);', title:'Official Accounts'},
+                {image:'images/vote2.jpg', video:'javascript:void(0);', title:'User interfaces'},
+                {image:'images/vote3.jpg', video:'javascript:void(0);', title:'User interfaces'},
+                {image:'images/vote4.jpg', video:'javascript:void(0);', title:'Manager'},
+                {image:'images/vote5.jpg', video:'javascript:void(0);', title:'chart'},
+                {image:'images/vote6.jpg', video:'javascript:void(0);', title:'lottery'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'A Javascript Game - Shift', 
+              authors: 'Zhenglin Geng, Hua Zeng',
+              descript: 'We made this game by drawing canvas in Javascript.',
+              demos: [
+                {image:'images/shift1.jpg', video:'javascript:void(0);', title:'Openning'},
+                {image:'images/shift2.jpg', video:'videos/shift.mp4', title:'Grid'},
+                {image:'images/shift3.jpg', video:'javascript:void(0);', title:'Congratulation'},
+              ],
+              tags: [
+                {text:'[game]', url:'javascript:void(0);'},
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'An Online Vocal Concert Ticket Ordering System - Xiaomai', 
+              authors: 'Zhenglin Geng, Yuwei Wang, Yang Yuan',
+              descript: 'We made this E-commerce website in Cjavascript:void(0); and MS SQL Server. We use MVC for a clearer structure. User can register, log in, forget password, manage personal infomation, search and filter concerts, favorate concerts, buy tickets, return tickets, raise questions etc. To make the website look more realistic, I wrote a web crawler to get 1,000 real-world concert infomation and put it in our database.',
+              demos: [
+                {image:'images/dm1.jpg', video:'javascript:void(0);', title:'user'},
+                {image:'images/dm2.jpg', video:'javascript:void(0);', title:'home page'},
+                {image:'images/dm3.jpg', video:'javascript:void(0);', title:'search'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: '2015 MCM A (Meritorious Winner)', 
+              authors: 'Xiaofan Cui, Lingxi Hou, Zhenglin Geng',
+              descript: 'I did almost all the coding and the charts. I also built part of the model.',
+              demos: [
+                {image:'images/mcm1.jpg', video:'javascript:void(0);', title:'model pridiction'},
+                {image:'images/mcm2.jpg', video:'javascript:void(0);', title:'result'},
+                {image:'images/mcm3.jpg', video:'javascript:void(0);', title:'part of the model'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'An Android Family Heath App - SmartDental', 
+              authors: 'Zhenglin Geng, You Peng, Wenge He, Hao Sun, Zhangzheng Chen, Anqi Wang, Jian Chen',
+              descript: 'I made almost all the user interfaces. In this app, user can mark the calendar, set agenda for family members, receive alerts. In the agenda list, user can add agenda, swap to dismiss, hold to change priority.',
+              demos: [
+                {image:'images/sd1.jpg', video:'videos/sd1.gif', title:'calendar'},
+                {image:'images/sd2.jpg', video:'videos/sd2.gif', title:'agenda'},
+                {image:'images/sd3.jpg', video:'videos/sd3.gif', title:'help'},
+                {image:'images/sd4.jpg', video:'videos/sd4.gif', title:'agenda'},
+                {image:'images/sd5.jpg', video:'videos/sd5.gif', title:'agenda'},
+                {image:'images/sd6.jpg', video:'videos/sd6.gif', title:'agenda'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'Graph Analysis in Baidu Encyclopedia', 
+              authors: 'Zhenglin Geng, Jiayu Zhang',
+              descript: 'We wrote a web crawler to get thousands of Baidu Encyclopedia items and then analyze the graph structure of items connections. We used K-Means for clustering and D3.js for data visualization.',
+              demos: [
+                {image:'images/graph.jpg', video:'javascript:void(0);', title:'graph'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+            {
+              project_name: 'A Tiny Chinese Search Engine', 
+              authors: 'Zhenglin Geng',
+              descript: 'I did Chinese words segmentation on 2,000 sina web pages. Then I built balance tree and hash table for the inverted document to accelerate searching process.',
+              demos: [
+                {image:'images/search1.jpg', video:'javascript:void(0);', title:'user interface'},
+                {image:'images/search2.jpg', video:'javascript:void(0);', title:'performance'},
+                {image:'images/search3.jpg', video:'javascript:void(0);', title:'results'},
+              ],
+              tags: [
+                {text:'[code]', url:'javascript:void(0);'}
+              ]
+            },
+        ];
+      }
+    });
+  </script>
+
+</dom-module>
