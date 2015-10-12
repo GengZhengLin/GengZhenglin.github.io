@@ -168,7 +168,12 @@ SelectionManager.prototype = {
 					url: murl,
 					success: function(data){
 						// var str = JSON.stringify(data);
-						var obj = JSON.parse(data);
+						var obj;
+						if (typeof data === "string"){
+							obj = JSON.parse(data);
+						}else {
+							obj = data;
+						}
 						that.words_data.words=that.words_data.words.concat(obj);
 						completed_urls.push(murl);
 						if (completed_urls.length === urls.length){
