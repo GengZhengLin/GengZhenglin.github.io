@@ -4,7 +4,7 @@ var info = {
 		id: 'Japanese',
 		name: '新世纪文化日语',
 		color: '#7dd6fe',
-		folder: '../api/Japanese/',
+		folder: '/api/Japanese/',
 		units: [
 			{file:'lesson1.json', name:'第一课'},
 			{file:'lesson2.json', name:'第二课'}
@@ -16,7 +16,7 @@ var info = {
 		id: 'GRE3000',
 		name: 'GRE要你命3000',
 		color: '#f4db33',
-		folder: '../api/GRE3000/',
+		folder: '/api/GRE3000/',
 		units:[
 			{ file: 'list1.json', name: 'List1' },
 			{ file: 'list2.json', name: 'List2' },
