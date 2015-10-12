@@ -1,0 +1,276 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ε=ε=ε=┏(゜ロ゜;)┛</title>
+
+
+  <link rel="import" href="elements/word-lists.html">
+
+
+  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+  <link rel="import" href="elements/word-card.html">
+  <link rel="import" href="elements/list-progress.html">
+  <link rel="import" href="elements/btn-group.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+  <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+
+  <link rel="stylesheet" type="text/css" href="css/card.css">
+  <style>
+    body {
+      font-family: 等线, 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f1f1f1;
+    }
+
+    .bg-rect {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .bg-rect-list{
+      height: 420px;  
+      -webkit-transition: height 0.5s ease-out;
+      transition: height 0.5s ease-out;
+    }
+
+    .bg-rect-card{
+      height: 100%;
+      -webkit-transition: height 0.5s ease-out;
+      transition: height 0.5s ease-out;
+    }
+    .red{
+      color: #F44336;
+    }
+    .orange{
+      color: #FF5722;
+    }
+    .yellow{
+      color: #FFEB3B;
+    }
+    .green{
+      color: #69F0AE;
+    }
+    .blue1{
+      color: #18FFFF;
+    }
+    .blue2{
+      color: #40C4FF;
+    }
+    .purple{
+      color: #B388FF;
+    }
+
+    .core-header {
+      height: 60px;
+      line-height: 60px;
+      font-size: 18px;
+      padding: 0 10px;
+      background-color: #ffffff;
+    }
+
+    .clear-float{
+      clear: both;
+    }
+
+    .header-icon{
+      padding: 0 7px 0 7px;
+      margin: 0 7px 0 7px;
+    }
+
+    .myripple-small{
+      transform: scale(0);
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      margin: auto;
+      transition: transform 0.5s ease-in;
+    }
+
+    .myripple-big{
+      transform: scale(20);
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      margin: auto;
+      transition: transform 0.5s ease-in;
+    }
+
+  </style>
+</head>
+<body>
+
+
+
+  <div class="bg-rect bg-rect-list" style="background: #69F0AE">
+    <div class="myripple-small" id="my-ripple"></div>
+  </div>
+  <core-header-panel flex class="core-header">
+    <core-toolbar>
+      <core-icon-button icon="arrow-back" class="header-icon" id="icon-back"></core-icon-button>
+      <core-icon-button icon="help" id="help-icon" class="header-icon" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon purple" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon blue2" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon blue1" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon green" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon yellow" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon orange" style="float:right;"></core-icon-button>
+      <core-icon-button icon="favorite" class="header-icon red" style="float:right;"></core-icon-button>
+    </core-toolbar>    
+  </core-header-panel>
+
+  <paper-dialog id="help-dialog" transition="core-transition-center">
+      <h1>使用帮助</h1>
+      <p><b>功能键：</b></p>
+      <p>
+        【← 键】：返回上一词；
+      </p>
+      <p>
+        【x 键】：不认识或回答错误；
+      </p>
+      <p>
+        【空格键】：揭晓隐藏释义；
+      </p>
+      <p>
+        【空格键】：揭晓隐藏释义或回答正确；
+      </p>
+      <p>
+        【→ 键】：快速跳过；
+      </p>
+      <p><b>算法说明：</b></p>
+      <p>根据所选list词语随机出现，当回答正确次数大于回答错误次数后，该词以后不再出现，进度条+1。</p>
+  </paper-dialog>
+  <section id="section-list">
+    <word-lists>
+      <paper-button toggle raised noink class="list-btn">noink1</paper-button>
+      <paper-button toggle raised noink class="list-btn">noink2</paper-button>
+      <paper-radio-button name="small" class="radio-btn" label="Small"></paper-radio-button>
+      <paper-radio-button name="medium" label="Medium" class="radio-btn"></paper-radio-button>
+      <paper-radio-button name="large" label="Large" class="radio-btn"></paper-radio-button>
+      <core-icon icon="visibility" class="icon-vis"></core-icon>
+      <core-icon icon="visibility" class="icon-vis"></core-icon>
+      <core-icon icon="visibility" class="icon-vis"></core-icon>
+    </word-lists>
+  </section>
+
+  <section style="display:none;" id="section-card">
+    <list-progress>
+      <span id="progress"></span>
+      <paper-progress></paper-progress>
+    </list-progress>
+    <btn-group>
+      <div class="fab back">
+        <core-icon icon="arrow-back"></core-icon>
+        <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+      </div>
+
+      <div class="fab wrong">
+        <core-icon icon="close"></core-icon>
+        <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+      </div>
+
+      <div class="fab open">
+        <core-icon icon="lock-open"></core-icon>
+        <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+      </div>
+      
+      <div class="fab right">
+        <core-icon icon="done"></core-icon>
+        <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+      </div>
+
+      <div class="fab next">
+        <core-icon icon="arrow-forward"></core-icon>
+        <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+      </div>
+    </btn-group>
+    <div class="card-container" layout vertical center></div>
+
+  </section>
+
+  
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/WordListManager.js"></script>
+  <script type="text/javascript" src="js/InteractionManager.js"></script>
+  <script type="text/javascript" src="js/SelectionManager.js"></script>
+  <script type="text/javascript" src="js/AnimationManager.js"></script>
+  <script type="text/javascript">
+
+    // var interaction = new InteractionManager();
+    // var keys = ['kana', 'character', 'Chinese'];
+    // var hiden_keys = ['Chinese'];
+    // var posts = {
+    //   keys:['kana', 'character', 'Chinese'],
+    //   words:[
+    //     {kana: 'hana0', character:'0', Chinese:'花0'},
+    //     {kana: 'hana1', character:'1', Chinese:'花1'},
+    //     {kana: 'hana2', character:'2', Chinese:'花2'},
+    //     {kana: 'hana3', character:'3', Chinese:'花3'},
+    //     {kana: 'hana4', character:'4', Chinese:'花4'},
+    //     {kana: 'hana5', character:'5', Chinese:'花5'},
+    //     ]
+    //   };
+    // interaction.InitManager(posts, 'kana', hiden_keys);
+
+    // var selection_manager;
+    window.addEventListener('polymer-ready', function(e) {
+      var animation_manager = new AnimationManager();
+      animation_manager.InitManager();
+      animation_manager.CardToList();
+    });
+
+    // $('.bg-rect').click(function(){
+    //   if ($('#my-ripple').hasClass('myripple-small')){
+    //     $('#my-ripple').removeClass('myripple-small');
+    //     $('#my-ripple').addClass('myripple-big');
+    //   }
+    //   else{
+    //     $('#my-ripple').removeClass('myripple-big');
+    //     $('#my-ripple').addClass('myripple-small');
+    //   }
+    // })
+    // $('body').click(function(){
+    //   // var $lists = $('word-lists::shadow .list');
+    //   // $lists.each(function(){
+    //   //   if ($(this).hasClass('container-appear')){
+    //   //     $(this).removeClass('container-appear');
+    //   //     $(this).addClass('container-disappear');
+    //   //   }
+    //   //   else{
+    //   //     $(this).removeClass('container-disappear');
+    //   //     $(this).addClass('container-appear');
+    //   //   }
+    //   // });
+
+    //   var $bg = $('.bg-rect');
+    //     if ($bg.hasClass('bg-rect-list')){
+    //       $bg.removeClass('bg-rect-list');
+    //       $bg.addClass('bg-rect-card');
+    //     }
+    //     else{
+    //       $bg.removeClass('bg-rect-card');
+    //       $bg.addClass('bg-rect-list');
+    //     }
+      
+    // })
+
+
+  </script>
+</body>
+</html>

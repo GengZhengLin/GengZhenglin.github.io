@@ -1,0 +1,65 @@
+.card-container {
+    position: relative;
+    margin: 0px auto;
+    margin-bottom: 5px;
+    width: 640px;
+    height: 360px;
+    display: block;
+  }
+@media (min-width: 900px) {
+  .card-container {
+  }
+}
+
+word-card.prev{
+  opacity: 0;
+  -webkit-transform: translate3d(-100px, 0, 0) scale(0.9);
+  transform: translate3d(-100px, 0, 0) scale(0.9);
+  transition: all 1s cubic-bezier(.03,.56,.7,.98);
+}
+word-card.show{
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(.03,.56,.7,.98);
+}
+word-card.next{
+  opacity: 0;
+  -webkit-transform: translate3d(100px, 0, 0) scale(0.9);
+  transform: translate3d(100px, 0, 0) scale(1);
+  transition: all 1s cubic-bezier(.03,.56,.7,.98);
+}
+
+@keyframes appear{
+  0% {transform: scale(0); -webkit-transform: scale(0);}
+  80% {transform: scale(1.2); -webkit-transform: scale(1.2);}
+  100% {transform: scale(1); -webkit-transform: scale(1);}
+}
+.container-appear{
+  animation-name: appear;
+  animation-duration: 0.5s;
+}
+
+@keyframes disappear{
+  0% {transform: scale(1); -webkit-transform: scale(1);}
+  20% {transform: scale(1.2); -webkit-transform: scale(1.2);}
+  100% {transform: scale(0); -webkit-transform: scale(0);}
+}
+.container-disappear{
+  animation-name: disappear;
+  animation-duration: 0.5s;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.card-appear{
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+
+.card-disappear{
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}

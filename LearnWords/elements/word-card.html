@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-shadow/paper-shadow.html">
+<polymer-element name="word-card">
+  <template>
+    <style>
+      :host{
+        position: absolute;
+      }
+    .card {
+      display: table-cell;
+      vertical-align: middle;
+      width: 640px;
+      height: 360px;
+      background-color: white;
+      font-family: 等线;
+      padding-bottom: 5px;
+      border-radius: 5px;
+      -webkit-user-select: none;
+      user-select:none;
+    }
+
+
+    polyfill-next-selector { content: '.card h2'; }
+    .card ::content h2 {
+      font-size: 5rem;
+      font-weight: 500;
+      padding: 1rem 0;
+      margin: 0 1rem 0.8rem 1rem;
+      text-align: center;
+      border-bottom:2px solid #dddddd;
+    }
+    .card ::content p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      padding: 0.3rem 3rem 0 3rem;
+      margin: auto;
+      text-align: center;
+    }
+
+  
+    .card ::content span {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: #848484;
+    }
+
+    </style>
+
+    <paper-shadow class="card" z="2">
+      <content select="h2"></content>
+      <content select="p"></content>
+      <content select="span"></content>
+    </paper-shadow>
+
+    <content></content>   
+  </template>
+  <script>
+  Polymer({});
+  </script>
+</polymer-element>
