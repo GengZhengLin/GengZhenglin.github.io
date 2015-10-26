@@ -1,0 +1,169 @@
+body{
+	background: rgb(0,0,0);
+	-webkit-user-select: none;
+}
+
+.backcontainer{
+	position: relative;
+	margin-left:auto;
+	margin-right: auto;
+	width: 640px;
+	-webkit-user-select: none;
+	overflow: hidden;
+}
+
+img#bgpic{
+	-webkit-user-select: none;
+}
+img.back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-user-select: none;
+}
+.canvascontainer{
+	position: absolute;
+	top: 20%;
+	left: 13%;
+	padding: 10px;
+	width: 490px;
+	height: 490px;
+	-webkit-user-select: none;
+}
+
+div.gameover{
+	
+}
+
+canvas#myCanvas{
+	position: absolute;
+	left: 4.8%;
+	top: 4.3%;
+}
+
+img#bottombtn{
+	position: absolute;
+	bottom: 3px;
+}
+
+img#bgpic{
+	-webkit-user-select: none;
+}
+
+img#cancelbtn{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+
+}
+
+img#mbtn{
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+
+div#curturn{
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*div.#passlv{
+	position: absolute;
+	top:20%;
+}*/
+
+div.rebtn{
+	position: absolute;
+	left: 24%;
+	bottom: -6%;
+}
+
+div.nextbtn{
+	position: absolute;
+	right: 22%;
+	bottom: -6%; 
+}
+
+canvas.starCanvas{
+	/*width: 300px;
+	height: 100px;*/
+	position: absolute;
+	left: 28%;
+	top: 40%;
+}
+
+canvas.particleCanvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*width: 640px;
+	height: 640px;*/
+}
+
+div.menubtn{
+	position: absolute;
+	top:40%;
+	left: 30%;
+}
+
+div.returnbtn{
+	position: absolute;
+	top:20%;
+	left: 30%;
+}
+
+div.grabtn{
+	position: absolute;
+	top:60%;
+	left: 30%;
+}
+
+div.passall{
+	position: absolute;
+	left: 0;
+	top: 50%;
+}
+
+canvas.firecanvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+div.topbar{
+	position: absolute;
+	top: 0;
+	color: white;
+	text-shadow: 2px 2px 5px yellow;
+	font-size: 40px;
+	font-family: 微软雅黑;
+}
+span.lv{
+	position: absolute;
+	top: 15%;
+	left: 5%;
+}
+
+span.stepnum{
+	position: absolute;
+	top: 15%;
+	right: 15%;
+}
+
+div.wait{
+	font-size: 40px;
+	font-family: 微软雅黑;
+	color:white;
+	position:absolute;
+	top: 30%;
+	left: 30%;
+}
+
+canvas#myCanvas{
+	cursor: pointer;
+}

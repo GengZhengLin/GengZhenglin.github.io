@@ -1,0 +1,10 @@
+{
+	"height":3,
+	"width":3,
+	"color":[3,4],
+	"matrix":[
+		{"top":4,"bottom":4,"left":4,"right":4},{"top":4,"bottom":3,"left":4,"right":3},{"top":3,"bottom":3,"left":3,"right":3},
+		{"top":4,"bottom":3,"left":4,"right":3},{"top":3,"bottom":4,"left":3,"right":4},{"top":3,"bottom":3,"left":3,"right":3},
+		{"top":3,"bottom":3,"left":3,"right":3},{"top":3,"bottom":3,"left":3,"right":3},{"top":3,"bottom":3,"left":3,"right":3}],
+	"threeStarStep":5
+}
