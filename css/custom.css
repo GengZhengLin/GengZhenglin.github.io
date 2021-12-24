@@ -1,0 +1,70 @@
+#my_name{
+	margin: 0.5em 0;
+	font-size: 3.5em;
+	margin: 1.5em 0 0.5em 0;
+	text-align: center;
+}
+
+div#my_pic{
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+#my_pic #me {
+	position: absolute;
+    width: 300px;
+    height: 300px;
+/*	left: 150px;
+	top: 20px;
+    -moz-border-radius: 50px;    
+    -webkit-border-radius: 50px;   
+    border-radius:50px;           
+    border: 5px solid #000000;*/
+  }
+
+
+.circle:before {
+  content: ' \25CF';
+  font-size: 30px;
+}
+
+#my_pic #circle1{
+	position: absolute;
+	top: 45px;
+}
+
+#my_pic #circle2{
+	position: absolute;
+	top: 45px;
+	left: 80px;
+}
+
+#my_pic #circle3{
+	position: absolute;
+	top: 45px;
+	right: 80px;
+}
+
+#my_pic #circle4{
+	position: absolute;
+	top: 45px;
+	right: 0;
+}
+
+#work_experience #time{
+	width: 180px;
+}
+
+#work_experience #place{
+	width: 300px;
+}
+
+#work_experience td{
+	vertical-align: middle;
+}
+
+h3{
+    color: #2079c7;
+}
